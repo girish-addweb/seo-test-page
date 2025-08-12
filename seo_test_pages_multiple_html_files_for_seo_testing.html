@@ -1,0 +1,234 @@
+<!--
+Project: seo-test-pages
+How to use:
+1. Create a public GitHub repo (e.g., seo-test-pages).
+2. Copy each file below into that repo at the root (make sure one file is named index.html).
+3. Enable GitHub Pages (branch: main, folder: / (root)).
+4. Visit: https://<your-username>.github.io/seo-test-pages/
+
+Files included below (copy each block into a separate file with the indicated filename):
+- index.html
+- multiple-h1.html
+- missing-h1.html
+- broken-link.html
+- broken-image.html
+- duplicate1.html
+- duplicate2.html
+- duplicate-h1-title.html
+- redirect-https-to-http.html
+- 404.html
+
+Each file intentionally contains one or more SEO issues as requested.
+-->
+
+===== index.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duplicate Title</title> <!-- This title will be duplicated across pages (Duplicate Title) -->
+  <meta name="description" content="This is a duplicate meta description used on multiple pages for testing."> <!-- duplicate description -->
+</head>
+<body>
+  <header>
+    <h1>Duplicate Title</h1> <!-- duplicate H1 and title text -->
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="multiple-h1.html">Multiple H1 page</a></li>
+      <li><a href="missing-h1.html">Missing H1 page</a></li>
+      <li><a href="broken-link.html">Broken External Link page</a></li>
+      <li><a href="broken-image.html">Broken Image page</a></li>
+      <li><a href="duplicate1.html">Duplicate content page 1</a></li>
+      <li><a href="duplicate2.html">Duplicate content page 2</a></li>
+      <li><a href="duplicate-h1-title.html">Duplicate H1 & Title page</a></li>
+      <li><a href="redirect-https-to-http.html">HTTPS -> HTTP redirect test</a></li>
+      <li><a href="non-existent-page.html">Trigger 404 (link to a missing page)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>This repo provides multiple small pages with intentional SEO issues so you can run your script against them.</p>
+    <p>Use the linked pages to validate that your SEO testing script detects the problems listed in your checklist.</p>
+  </main>
+
+  <footer>
+    <p>Author: SEO Test Generator</p>
+  </footer>
+</body>
+</html>
+
+
+===== multiple-h1.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multiple H1 Test</title>
+  <meta name="description" content="Page that contains multiple H1 tags for testing the detection of improper heading structure.">
+</head>
+<body>
+  <h1>Main Heading (H1) — should be only one</h1>
+  <section>
+    <h1>Secondary Heading (H1) — intentionally incorrect</h1>
+    <p>Having more than one H1 on a page is an SEO issue for many checkers.</p>
+  </section>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== missing-h1.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Missing H1 Test</title>
+  <meta name="description" content="This page intentionally has no H1 tag so your script can detect missing H1s.">
+</head>
+<body>
+  <!-- Notice: NO <h1> on purpose -->
+  <h2>Subheading only (H2)</h2>
+  <p>Pages without an H1 can be flagged by SEO tools as missing heading structure.</p>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== broken-link.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broken External Link Test</title>
+  <meta name="description" content="This page contains a link that points to a non-existent external host for broken-link testing.">
+</head>
+<body>
+  <h1>Broken External Link</h1>
+  <p>Click the link below (or let your crawler follow it) to detect a broken external URL.</p>
+  <!-- using the .invalid TLD which is reserved for testing and will not resolve -->
+  <a href="https://nonexistent.example.invalid/this-page-does-not-exist">Broken external link (nonexistent.example.invalid)</a>
+  <p><a href="index.html">Back</a></p>
+</body>
+</html>
+
+
+===== broken-image.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broken Image URL Test</title>
+  <meta name="description" content="This page contains an image tag which points to a missing file (broken image URL).">
+</head>
+<body>
+  <h1>Broken Image</h1>
+  <!-- Image source points to a file that is not present in the repo, so it will 404 -->
+  <img src="missing-image.jpg" alt=""> <!-- Missing alt text + broken src -->
+  <p>This image is intentionally broken and also has an empty alt attribute to trigger alt text detection.</p>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== duplicate1.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duplicate Title</title>
+  <meta name="description" content="This is a duplicate meta description used on multiple pages for testing.">
+</head>
+<body>
+  <h1>Duplicate content example</h1>
+  <p>This content is intentionally repeated on another page (duplicate2.html) to simulate duplicate content across pages.</p>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== duplicate2.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duplicate Title</title>
+  <meta name="description" content="This is a duplicate meta description used on multiple pages for testing.">
+</head>
+<body>
+  <h1>Duplicate content example</h1>
+  <p>This content is intentionally repeated on another page (duplicate1.html) to simulate duplicate content across pages.</p>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== duplicate-h1-title.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exact Match Title and H1</title>
+  <meta name="description" content="Page where the H1 matches the title — used to test duplicate H1-title detection.">
+</head>
+<body>
+  <h1>Exact Match Title and H1</h1> <!-- H1 text exactly matches the <title> -->
+  <p>This page intentionally has identical title and H1 text to test rules that flag title/H1 duplication.</p>
+  <a href="index.html">Back</a>
+</body>
+</html>
+
+
+===== redirect-https-to-http.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTPS to HTTP Redirect Test</title>
+  <meta name="description" content="This page demonstrates an automatic redirect from HTTPS to HTTP using a meta refresh (for testing only).">
+  <!-- Meta refresh redirects to an http:// URL to simulate HTTPS page leading to HTTP page -->
+  <meta http-equiv="refresh" content="3; url=http://example.com/">
+</head>
+<body>
+  <h1>HTTPS -> HTTP Redirect</h1>
+  <p>This page will redirect after 3 seconds to <code>http://example.com/</code>. Use this to test detection of pages that degrade to HTTP.</p>
+  <p><a href="index.html">Back</a></p>
+</body>
+</html>
+
+
+===== 404.html =====
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 Not Found</title>
+  <meta name="robots" content="noindex"> <!-- 404 pages should often be noindexed -->
+</head>
+<body>
+  <h1>404 - Page Not Found</h1>
+  <p>The page you are looking for cannot be found. This file named <code>404.html</code> will be served for not-found routes on GitHub Pages when present.</p>
+  <a href="index.html">Back to home</a>
+</body>
+</html>
